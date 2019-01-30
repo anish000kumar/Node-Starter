@@ -1,0 +1,13 @@
+{
+    "name": "node-starter",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "backend": "cd ./backend && npm run dev",
+        "frontend": "cd frontend &&  npm run start",
+        "start": "npm run backend | npm run frontend"
+    },
+    "author": "Anish Kumar",
+    "license": "ISC"
+}
