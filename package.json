@@ -4,10 +4,13 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "backend": "cd ./backend && npm run dev",
+        "api": "cd ./api && npm run dev",
         "frontend": "cd frontend &&  npm run start",
-        "start": "npm run backend | npm run frontend"
+        "start": "npm run api | npm run frontend"
     },
     "author": "Anish Kumar",
-    "license": "ISC"
+    "license": "ISC",
+    "devDependencies": {
+        "babel-helpers": "^6.24.1"
+    }
 }
