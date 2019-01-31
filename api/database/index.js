@@ -7,8 +7,12 @@ export default function initDatabase() {
         try {
             // start connection
             log.info("[mongoDB] Initiaining connection...")
-            mongoose.connect(process.env.DB_CONNECTION_STRING)
+            mongoose.connect(process.env.DB_CONNECTION_STRING, { auth: { authdb: "rapidStack" } })
             var db = mongoose.connection;
+
+            // turn on debug
+            if (process.env.DEBUG)
+                mongoose.set('debug', true);
 
             // connection error
             db.on('error', function (err) {
@@ -24,7 +28,7 @@ export default function initDatabase() {
             });
         }
         catch (err) {
-            log.error(err);
+            log.error('[mongoDB]: ' + err);
             reject(err)
         }
     })
