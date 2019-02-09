@@ -1,16 +1,11 @@
 import { Controller } from "./index";
-import { version } from "../../package.json";
+import { version } from "@api/package.json";
 
-class RootController extends Controller {
+export default function ({ db, }){
 
-    /* index route for app */
-    index(req, res) {
-        res.send({
-            name: this.config.name,
-            version: version
-        })
+
+
+    return {
+
     }
-
 }
-
-export default RootController;

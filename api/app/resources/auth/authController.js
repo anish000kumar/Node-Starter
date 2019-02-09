@@ -1,4 +1,4 @@
-import { Controller } from "../../controllers";
+import { Controller } from "@controllers";
 
 export default class AuthController extends Controller {
 

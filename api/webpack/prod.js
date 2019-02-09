@@ -19,7 +19,8 @@ module.exports = {
             '@middlewares': path.resolve(__dirname,"..","app",'middlewares'),
             '@resources': path.resolve(__dirname,"..","app",'resources'),
             '@common': path.resolve(__dirname, "..", "..", 'common'),
-            '@client': path.resolve(__dirname, "..", "..", 'client')
+            '@client': path.resolve(__dirname, "..", "..", 'client'),
+            '@api': path.resolve(__dirname, "..", "..", 'api')
         },
         extensions: ['.js', '.json']
     },

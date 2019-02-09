@@ -1,12 +1,11 @@
 import { Router } from 'express';
-import userResource from "./resources/user"
-import authResource from "./resources/auth"
-import RootController from "./controllers/rootController";
+import userResource from "@resources/user"
+import authResource from "@resources/auth"
+import rootController from "@controllers/rootController";
 
 
-export default function apiMain(context) {
+export default function apiProvider(context) {
     const api = Router();
-    const rootController = new RootController(context);
 
     api.get('/', rootController.index);
     api.use('/user', userResource(context))
