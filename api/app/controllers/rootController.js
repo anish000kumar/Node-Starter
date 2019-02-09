@@ -1,7 +1,8 @@
 import { Controller } from "./index";
 import { version } from "@api/package.json";
 
-export default function ({ db, }){
+function rootController(context){
+
 
 
 
@@ -9,3 +10,5 @@ export default function ({ db, }){
 
     }
 }
+
+export default rootController;

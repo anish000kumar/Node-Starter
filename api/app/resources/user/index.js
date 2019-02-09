@@ -1,14 +1,10 @@
-import { resource } from "../../controllers";
-import UserController from "./userController";
+import { createResource } from "@helpers";
+import userController from "./controller";
+import userRouter from "./routes.js";
+import userModel from "./model.js"
 
-function userRouter(route, controller) {
-
-    route.get("/", controller.getAll);
-    route.post("/", controller.create);
-    route.get("/:id", controller.get);
-    route.put("/:id", controller.update);
-    route.delete("/:id", controller.destroy);
-
-}
-
-export default resource(UserController, userRouter)
+export default createResource({
+    router: userRouter,
+    controller: userController,
+    model: userModel
+})

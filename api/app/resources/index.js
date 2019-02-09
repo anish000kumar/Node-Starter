@@ -1,17 +1,11 @@
-import { Router } from "express";
-import { log } from "@helpers"
+import UserResource from "@resources/user";
+import AuthResource from "@resources/auth";
 
-export function resource(resourceRouter, resourceController, resourceModel) {
-    return function (context) {
-        try {
-            context = { model: resourceModel, ...context };
-            const route = new Router();
-            const controller = resourceController(context);
-            resourceRouter(route, controller);
-            return route;
-        }
-        catch (err) {
-            log.error("[error] [" + resourceController + "] " + err)
-        }
-    }
+function registerResources(api, context){
+
+    api.get("/user", UserResource(context)),
+    api.get("/auth", AuthResource(context))
+
 }
+
+export default registerResources;

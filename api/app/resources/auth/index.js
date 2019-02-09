@@ -1,11 +1,8 @@
-import { resource } from "../../controllers";
-import AuthController from "./authController";
+import { createResource } from "@helpers"
+import authController from "./controller";
+import authRouter from "./routes.js";
 
-function authRouter(route, controller) {
-
-    route.post("/login", controller.login);
-    route.post("/register", controller.register)
-
-}
-
-export default resource(AuthController, authRouter)
+export default createResource({
+    router: authRouter,
+    controller: authController
+});

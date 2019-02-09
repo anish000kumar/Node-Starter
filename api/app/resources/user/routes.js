@@ -1,5 +1,4 @@
-
-export default function userRouter(route, controller) {
+function userRouter(route, controller) {
 
     route.get("/", controller.getAll);
     route.post("/", controller.create);
@@ -9,3 +8,6 @@ export default function userRouter(route, controller) {
 
     return route;
 }
+
+
+export default userRouter;

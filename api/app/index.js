@@ -1,15 +1,18 @@
 import { Router } from 'express';
-import userResource from "@resources/user"
-import authResource from "@resources/auth"
 import rootController from "@controllers/rootController";
+import registerResources from "@resources";
+
+ function apiProvider(context) {
 
 
-export default function apiProvider(context) {
     const api = Router();
+    // global routes
+    api.get('/', rootController(context).index);
 
-    api.get('/', rootController.index);
-    api.use('/user', userResource(context))
-    api.use('/auth', authResource(context))
-
+    // resources
+    registerResources(api, context);
     return api;
 }
+
+
+export default apiProvider
