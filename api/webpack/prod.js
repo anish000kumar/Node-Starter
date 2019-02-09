@@ -12,10 +12,16 @@ module.exports = {
 
     resolve: {
         alias: {
-            common: path.resolve(__dirname, "../common"),
-            frontend: path.resolve(__dirname, "../frontend"),
-            backend: path.resolve(__dirname, "../backend")
-        }
+            '@app': path.resolve(__dirname, "..", "app"),
+            '@database': path.resolve(__dirname, "..","database"),
+            '@helpers': path.resolve(__dirname,"..","helpers"),
+            '@controllers': path.resolve(__dirname,"..","app",'controllers'),
+            '@middlewares': path.resolve(__dirname,"..","app",'middlewares'),
+            '@resources': path.resolve(__dirname,"..","app",'resources'),
+            '@common': path.resolve(__dirname, "..", "..", 'common'),
+            '@client': path.resolve(__dirname, "..", "..", 'client')
+        },
+        extensions: ['.js', '.json']
     },
 
     module: {

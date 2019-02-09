@@ -9,9 +9,14 @@ module.exports = {
     },
     resolve: {
         alias: {
-            Common: path.resolve(__dirname, "../../common"),
-            Frontend: path.resolve(__dirname, "../../frontend"),
-            Backend: path.resolve(__dirname)
+            '@app': path.resolve(__dirname, "..", "app"),
+            '@database': path.resolve(__dirname, "..","database"),
+            '@helpers': path.resolve(__dirname,"..","helpers"),
+            '@controllers': path.resolve(__dirname,"..","app",'controllers'),
+            '@middlewares': path.resolve(__dirname,"..","app",'middlewares'),
+            '@resources': path.resolve(__dirname,"..","app",'resources'),
+            '@common': path.resolve(__dirname, "..", "..", 'common'),
+            '@client': path.resolve(__dirname, "..", "..", 'client')
         },
         extensions: ['.js', '.json']
     },
