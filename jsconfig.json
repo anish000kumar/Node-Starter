@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@app": ["./api/app/*"],
+        "@database": ["./api/database/*"],
+        "@helpers":["./api/helpers/*"],
+        "@controllers": ["./api/app/controllers/*"],
+        "@middlewares":["./api/app/middlewares/*"],
+        "@resources": ["./api/app/resources/*"],
+        "@common":["./common/*"] ,
+        "@client": ["./client/*"],
+        "@api":  ["./api/*"]
+      }
+    }
+  }

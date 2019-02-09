@@ -1,14 +1,14 @@
-import { Controller } from "./index";
 import { version } from "@api/package.json";
 
-function rootController(context){
-
-
-
-
-    return {
-
+const rootController =(context) =>({
+    
+    index(req, res){
+        res.json({
+            version,
+            success: true
+        })
     }
-}
+
+})
 
 export default rootController;

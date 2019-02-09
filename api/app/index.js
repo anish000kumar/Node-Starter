@@ -1,16 +1,15 @@
 import { Router } from 'express';
-import rootController from "@controllers/rootController";
-import registerResources from "@resources";
+import registerResources from "@resource";
+import registerRoutes from "./resources";
 
  function apiProvider(context) {
-
-
     const api = Router();
-    // global routes
-    api.get('/', rootController(context).index);
 
+    // global routes
+    registerRoutes(api, context);
     // resources
     registerResources(api, context);
+
     return api;
 }
 
