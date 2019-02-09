@@ -1,11 +1,9 @@
-import UserResource from "@resources/user";
-import AuthResource from "@resources/auth";
+import UserResource from '@resources/user';
+import AuthResource from '@resources/auth';
 
-function registerResources(api, context){
-
-    api.get("/user", UserResource(context)),
-    api.get("/auth", AuthResource(context))
-
+function registerResources(api, context) {
+  api.get('/user', UserResource(context));
+  api.get('/auth', AuthResource(context));
 }
 
 export default registerResources;
