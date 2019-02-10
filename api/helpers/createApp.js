@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import log from '@helpers';
 
-function createResource({ router, controller, model }) {
+function createApp({ router, controller, model }) {
   return function resource(context) {
     try {
       // create new router for reseource
@@ -19,4 +19,4 @@ function createResource({ router, controller, model }) {
   };
 }
 
-export default createResource;
+export default createApp;
