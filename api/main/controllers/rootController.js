@@ -1,6 +1,6 @@
 import { version } from '@api/package.json';
 
-function rootController(context) {
+function rootController() {
   function index(req, res) {
     res.json({
       version,

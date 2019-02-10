@@ -1,9 +1,10 @@
 import userApp from '@app/user';
 import authApp from '@app/auth';
+import auth from '@app/auth/middleware';
 
-function registerApps(api, context) {
-  api.use('/user', userApp(context));
-  api.use('/auth', authApp(context));
+function registerApps(app, context) {
+  app.use('/user', auth, userApp(context));
+  app.use('/auth', authApp(context));
 }
 
 export default registerApps;

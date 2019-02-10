@@ -5,7 +5,6 @@ function userController({ model: User }) {
   }
 
   async function create(req, res) {
-    res.send(req.body);
     const user = await new User(req.body);
     await user.save();
     res.send(user);
