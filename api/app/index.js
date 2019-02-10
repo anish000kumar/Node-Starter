@@ -1,17 +1,9 @@
-import { Router } from 'express';
-import registerResources from '@resources';
-import registerRoutes from './routes';
+import userApp from '@app/user';
+import authApp from '@app/auth';
 
-function apiProvider(context) {
-  const api = Router();
-
-  // global routes
-  registerRoutes(api, context);
-
-  // resources
-  registerResources(api, context);
-
-  return api;
+function registerApps(api, context) {
+  api.use('/user', userApp(context));
+  api.use('/auth', authApp(context));
 }
 
-export default apiProvider;
+export default registerApps;
