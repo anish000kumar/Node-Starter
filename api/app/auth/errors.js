@@ -16,4 +16,16 @@ export default {
     message: error || 'User details are not valid',
     errorCode: 'AUTH3',
   }),
+
+  INVALID_PASSWORD: {
+    error: true,
+    message: 'Invalid password',
+    errorCode: 'AUTH4',
+  },
+
+  PASSWORD_MISMATCH:{
+    error: true,
+    message: 'passwords do not match',
+    errorCode: 'AUTH5'
+  }
 };

@@ -10,7 +10,7 @@ function mongoProvider() {
       const db = mongoose.connection;
 
       // turn on debug
-      if (process.env.DEBUG) mongoose.set('debug', true);
+      if (process.env.DEV) mongoose.set('debug', true);
 
       // connection error
       db.on('error', function(err) {
