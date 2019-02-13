@@ -1,5 +1,6 @@
 import errors from './errors';
 import jwt from 'jsonwebtoken';
+import { trycatch } from "@helpers";
 
 function authController({ model: User, config }) {
   //Login
@@ -17,9 +18,16 @@ function authController({ model: User, config }) {
 
   //Register
   async function register(req, res) {
-    const user = new User(req.body);
-    await user.save();
-    res.json(user);
+      const user = new User(req.body);
+      if (isUserValid(user)) {
+        await user.save();
+        return res.json(user);
+      }
+      res.status(500).json(errors.INVALID_USER_DETAILS());
+  }
+
+  function isUserValid(user) {
+    return 1;
   }
 
   // Return signed JWT token
@@ -30,10 +38,10 @@ function authController({ model: User, config }) {
   }
 
   //Public methods
-  return {
+  return trycatch({
     login,
     register,
-  };
+  });
 }
 
 export default authController;

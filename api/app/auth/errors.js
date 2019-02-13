@@ -10,4 +10,10 @@ export default {
     message: 'Invalid Token',
     errorCode: 'AUTH2',
   },
+
+  INVALID_USER_DETAILS: error => ({
+    error: true,
+    message: error || 'User details are not valid',
+    errorCode: 'AUTH3',
+  }),
 };
