@@ -13,14 +13,20 @@ export default function sendEmail(email) {
   const nodemailerMailgun = nodeMailer.createTransport(mg(auth));
 
   return new Promise((resolve, reject) => {
-    nodemailerMailgun.sendMail(email, (err, info) => {
-      if (err) {
-        log.error(`Error: ${JSON.stringify(error)}`);
-        reject(err);
-      } else {
-        log.success(`Response: ${JSON.stringify(info)}`);
-        resolve(true);
+    nodemailerMailgun.sendMail(
+      {
+        ...email,
+        from: process.env.EMAIL_FROM,
+      },
+      (err, info) => {
+        if (err) {
+          log.error(`Error: ${JSON.stringify(err)}`);
+          reject(err);
+        } else {
+          log.success(`Response: ${JSON.stringify(info)}`);
+          resolve(true);
+        }
       }
-    });
+    );
   });
 }

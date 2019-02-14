@@ -23,9 +23,15 @@ export default {
     errorCode: 'AUTH4',
   },
 
-  PASSWORD_MISMATCH:{
+  PASSWORD_MISMATCH: {
     error: true,
     message: 'passwords do not match',
-    errorCode: 'AUTH5'
-  }
+    errorCode: 'AUTH5',
+  },
+
+  INVALID_EMAIL: {
+    error: true,
+    message: 'invalid Email',
+    errorCode: 'AUTH6',
+  },
 };
