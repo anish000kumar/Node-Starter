@@ -1,10 +1,23 @@
-import { createApp } from '@helpers';
+import { Router } from 'express';
 import userController from './controller';
-import userRouter from './routes.js';
-import userModel from './model.js';
+import enableAuth from '../auth';
+import User from './model';
 
-export default createApp({
-  router: userRouter,
-  controller: userController,
-  model: userModel,
+const app = new Router();
+
+export const auth = enableAuth({
+  router: app,
+  model: User,
+  fields: {
+    hash: 'resetPasswordHash',
+    username: ['email', 'username'],
+  },
 });
+
+app.get('/', userController.getAll);
+// app.post('/', userController.create);
+app.get('/:userId', userController.get);
+app.put('/:userId', userController.update);
+app.delete('/:userId', userController.destroy);
+
+export default app;

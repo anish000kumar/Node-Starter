@@ -1,40 +1,38 @@
-function userController({ model: User }) {
-  async function getAll(req, res) {
-    const users = await User.find({});
-    res.send(users);
-  }
+import User from './model';
 
-  async function create(req, res) {
-    const user = await new User(req.body);
-    await user.save();
-    res.send(user);
-  }
-
-  async function get(req, res) {
-    const user = await User.findById(req.params.userId);
-    res.send(user);
-  }
-
-  async function update(req, res) {
-    const user = await User.updateOne({ id: req.params.userId }, req.body);
-    res.send(user);
-  }
-
-  async function destroy(req, res) {
-    await User.deleteOne({ id: req.params.userId });
-    res.send({
-      success: true,
-    });
-  }
-
-  //public functions
-  return {
-    get,
-    getAll,
-    create,
-    update,
-    destroy,
-  };
+async function getAll(req, res) {
+  const users = await User.find({});
+  res.send(users);
 }
 
-export default userController;
+async function create(req, res) {
+  const user = await new User(req.body);
+  await user.save();
+  res.send(user);
+}
+
+async function get(req, res) {
+  const user = await User.findById(req.params.userId);
+  res.send(user);
+}
+
+async function update(req, res) {
+  const user = await User.updateOne({ id: req.params.userId }, req.body);
+  res.send(user);
+}
+
+async function destroy(req, res) {
+  await User.deleteOne({ id: req.params.userId });
+  res.send({
+    success: true,
+  });
+}
+
+//public functions
+export default {
+  get,
+  getAll,
+  create,
+  update,
+  destroy,
+};
